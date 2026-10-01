@@ -1,0 +1,13 @@
+{
+  "name": "forex-copilot",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "description": "Assistente de análise e disciplina para Forex (somente conta demo). Etapa 1: dados + gráfico.",
+  "scripts": {
+    "dev": "npx vercel dev",
+    "serve:local": "node scripts/dev-server.mjs",
+    "test": "node --test"
+  },
+  "engines": { "node": "22.x" }
+}

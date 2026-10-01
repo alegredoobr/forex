@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forex Copilot</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Forex Copilot</h1>
+    <span class="badge">Conta demo · sem execução de ordens</span>
+  </header>
+
+  <main class="layout">
+    <section class="market" aria-label="Mercado">
+      <div class="quote">
+        <div>
+          <p class="pair">EUR/USD <span class="tf">15 min</span></p>
+          <p id="price" class="price" aria-live="polite">—</p>
+          <p class="price-note">Fechamento do candle mais recente</p>
+        </div>
+        <div class="quote-side">
+          <button id="refresh" class="btn" type="button">Atualizar</button>
+          <p id="updated" class="meta">Aguardando dados…</p>
+        </div>
+      </div>
+
+      <p id="notice" class="notice" role="status" hidden></p>
+
+      <div class="chart-wrap">
+        <div id="chart" role="img" aria-label="Gráfico candlestick EUR/USD 15 minutos"></div>
+        <div id="unavailable" class="unavailable" hidden>DADOS INDISPONÍVEIS</div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="panel" id="analysis" aria-labelledby="h-analysis">
+        <h2 id="h-analysis">Análise do setup</h2>
+        <dl id="analysis-list" class="rows"></dl>
+        <p class="status">AGUARDANDO MOTOR DE ANÁLISE</p>
+      </section>
+
+      <section class="panel" aria-labelledby="h-risk">
+        <h2 id="h-risk">Gerenciamento de risco</h2>
+        <div class="fields">
+          <label>Banca <input id="bankroll" type="number" inputmode="decimal" min="0" step="any" placeholder="1000"></label>
+          <label>Risco máximo por operação (%) <input id="riskPct" type="number" inputmode="decimal" min="0" max="100" step="any" placeholder="1"></label>
+          <label>Entrada <input id="entry" type="number" inputmode="decimal" step="any" placeholder="—"></label>
+          <label>Stop Loss <input id="sl" type="number" inputmode="decimal" step="any" placeholder="—"></label>
+          <label>Take Profit <input id="tp" type="number" inputmode="decimal" step="any" placeholder="—"></label>
+        </div>
+        <p class="risk-out">Risco máximo: <strong id="riskMoney">—</strong></p>
+        <p class="meta">Tamanho de lote ainda não é calculado: falta definir moeda da conta, contrato, valor do pip e conversões.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="h-state">
+        <h2 id="h-state">Estado do trader</h2>
+        <div id="trader" class="states" role="radiogroup" aria-label="Estado do trader"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    Ferramenta educacional. Não executa ordens, não prevê o mercado e não promete lucro.
+    Gráfico: <a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView Lightweight Charts™</a>.
+    Dados: Twelve Data.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
